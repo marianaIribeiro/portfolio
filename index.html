@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Mariana Ribeiro</title>
+    <style>
+        
+        
+        .slideshow-container {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+            width: 100vw;
+            height: auto;
+            background: black;
+            position: relative;
+        }
+
+        body {
+            background-color: black;
+        }
+
+        .mySlides {
+            display:none;
+            border: none !important;
+            outline: none;
+        }
+
+        .mySlides img {
+            width:100vw;
+            height:auto;
+            border: none !important;
+            outline: none;
+        }
+
+        .next {
+            cursor:pointer ;
+            position:absolute;
+            top:0;
+            bottom:0;
+            width: 100px;;
+            padding:16px;
+            color: rgba(244, 247, 245, 0.856);
+            font-weight:bold;
+            font-size: 18px;
+            transition:0.6s ease;
+            border-radius:0 3px 3px 0;
+            user-select:none;
+            text-decoration:none;
+            background-color:none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity:0;
+            z-index:1;
+        }
+
+        .prev{
+            cursor:pointer ;
+            position:absolute;
+            top:0;
+            bottom:0;
+            width: 100px;;
+            padding:16px;
+            color: rgba(244, 247, 245, 0.856);
+            font-weight:bold;
+            font-size: 18px;
+            transition:0.6s ease;
+            border-radius:0 3px 3px 0;
+            user-select:none;
+            text-decoration:none;
+            background-color:none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity:0;
+            z-index:1;
+        }
+
+        .prev{
+            left: 0;
+        }
+
+        .next{
+            right: 0;
+        }
+
+        .slideshow-container:hover .prev,
+        .slideshow-container:hover .next {
+            opacity:1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <a class="prev" onclick="plusSlides(-1)"  href="#"></a>
+            <img src="img.01.png" style="width: 100%;">
+        </div>
+
+        <div class="mySlides fade">
+            <a class="prev" onclick="plusSlides(-1)"  href="#"></a>
+            <img src="img.02.gif" style="width: 100%;">
+        </div>
+    
+        <div class="mySlides fade">
+            <a class="prev" onclick="plusSlides(-1)"  href="#"></a>
+            <img src="img.03.gif" style="width: 100%;">    
+        </div>
+
+        <div class="mySlides fade">
+            <a class="prev" onclick="plusSlides(-1)"  href="#"></a>
+            <img src="img.04.png" style="width: 100%;">    
+        </div>
+
+        <div class="mySlides fade">
+            <a class="prev" onclick="plusSlides(-1)"  href="#"></a>
+            <img src="img.05.gif" style="width: 100%;">    
+        </div>
+
+        <div class="mySlides fade">
+            <a class="prev" onclick="plusSlides(-1)"  href="#"></a>
+            <img src="img.06.gif" style="width: 100%;">    
+        </div>
+
+        <div class="mySlides fade">
+            <a class="prev" onclick="plusSlides(-1)"  href="#"></a>
+            <img src="img.07.gif" style="width: 100%;">    
+        </div>
+
+        <div class="mySlides fade">
+            <a class="prev" onclick="plusSlides(-1)"  href="#"></a>
+            <img src="img.08.gif" style="width: 100%;">    
+        </div>
+
+        <div class="mySlides fade">
+            <a class="prev" onclick="plusSlides(-1)"  href="#"></a>
+            <img src="img.09.png" style="width: 100%;">    
+        </div>
+
+        <div class="mySlides fade">
+            <a class="prev" onclick="plusSlides(-1)"  href="#"></a>
+            <img src="img.10.gif" style="width: 100%;">    
+        </div>
+
+        <div class="mySlides fade">
+            <a class="prev" onclick="plusSlides(-1)"  href="#"></a>
+            <video class="video-slide" src="img.11.mp4" autoplay loop style="width: 100%;"></video>
+        </div>
+
+        <div class="mySlides fade">
+            <a class="prev" onclick="plusSlides(-1)"  href="#"></a>
+            <video class="video-slide" src="img.12.mp4" autoplay loop style="width: 100%;"></video>
+      http://127.0.0.1:5500/MarianaRibeiro.html#  </div>
+
+        <div class="mySlides fade">
+            <a class="prev" onclick="plusSlides(-1)"  href="#"></a>
+            <img src="img.13.png" style="width: 100%;">    
+        </div>
+    </div>
+
+    <a class="next" onclick="plusSlides(1)" href="#"></a>
+
+ <script>
+    let slideIndex =1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+        slideIndex +=n;
+        showSlides(slideIndex);
+    }
+
+    function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        if (n>slides.length) {slideIndex=1}
+        if (n<1) {slideIndex=slides.length}
+        for (i=0; i<slides.length; i++) {
+            slides[i].style.display= "none";
+        }
+        slides[slideIndex-1].style.display= "block";
+
+
+        // Verifica se o slide atual contém um vídeo e o reproduz
+        let currentSlide = slides[slideIndex-1];
+        let video = currentSlide.querySelector('.video-slide');
+        if (video) {
+            video.play();
+        }
+    }
+// Adiciona reprodução de áudio aos vídeos
+    document.addEventListener('transitioned', function(event) {
+        if (event.target.classList.contains('mySlides')) {
+            let video = event.target.querySelector('.video-slide');
+            if (video) {
+                video.muted=false; // Garante que o oáudio não está silenciado
+                video.play();
+            }
+        }
+    });
+
+    function plusSlides(n) {
+        pauseVideos(); //Pausa todos os vídeos antes de mudar de slide
+        slideIndex +=n;
+        showSlides(slideIndex);
+    }
+
+    function pauseVideos() {
+        let videos=document.querySelectorAll('.video-slide');
+        videos.forEach(video=> {
+            video.pause(); //Pausa a reprodução de cada vídeo
+        });
+    }
+
+</script>   
+</body>
+</html>
